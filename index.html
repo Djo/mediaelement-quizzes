@@ -21,7 +21,7 @@
     <ul>
       <li>Subtitles</li>
       <li>Chapters</li>
-      <li>Quizzes (the video will be stopped in 5 seconds)</li>
+      <li>Quizzes (the video will be paused in 5 seconds)</li>
     </ul>
 
     <video width="640" height="360" id="player" poster="/echo.jpg" controls="controls" preload="none">
@@ -32,6 +32,12 @@
       <source type="video/webm" src="/echo.webm" />
       <!-- Ogg/Vorbis for older Firefox and Opera versions -->
       <source type="video/ogg" src="/echo.ogv" />
+      <!-- Subtitles -->
+      <track srclang="en" kind="subtitles" type="text/vtt" src="subtitles_en.vtt"></track>
+      <track srclang="de" kind="subtitles" type="text/vtt" src="subtitles_de.vtt"></track>
+      <!-- Chapters -->
+      <track srclang="en" kind="chapters" type="text/vtt" src="chapters_en.vtt"></track>
+      <track srclang="de" kind="chapters" type="text/vtt" src="chapters_de.vtt"></track>
       <!-- Flash fallback for non-HTML5 browsers without JavaScript -->
       <object width="640" height="360" type="application/x-shockwave-flash" data="flashmediaelement.swf">
           <param name="movie" value="flashmediaelement.swf" />
