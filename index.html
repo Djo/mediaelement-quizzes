@@ -21,31 +21,21 @@
     <ul>
       <li>Subtitles</li>
       <li>Chapters</li>
+      <li>Flash Fallback</li>
       <li>Quizzes (the video will be paused in 5 seconds)</li>
     </ul>
 
     <div class="video_container">
-      <video width="640" height="360" id="player" poster="echo.jpg" controls="controls" preload="none">
+      <video width="640" height="360" id="player" poster="media/echo.jpg" controls="controls" preload="none">
         <!-- MP4 source must come first for iOS -->
         <!-- MP4 for Safari, IE9, iPhone, iPad, Android, and Windows Phone 7 -->
-        <source type="video/mp4" src="echo.mp4" />
-        <!-- WebM/VP8 for Firefox4, Opera, and Chrome -->
-        <source type="video/webm" src="echo.webm" />
-        <!-- Ogg/Vorbis for older Firefox and Opera versions -->
-        <source type="video/ogg" src="echo.ogv" />
+        <source type="video/mp4" src="media/echo.mp4" />
         <!-- Subtitles -->
-        <track srclang="en" kind="subtitles" type="text/vtt" src="subtitles_en.vtt"></track>
-        <track srclang="de" kind="subtitles" type="text/vtt" src="subtitles_de.vtt"></track>
+        <track srclang="en" kind="subtitles" type="text/vtt" src="media/subtitles_en.vtt"></track>
+        <track srclang="de" kind="subtitles" type="text/vtt" src="media/subtitles_de.vtt"></track>
         <!-- Chapters -->
-        <track srclang="en" kind="chapters" type="text/vtt" src="chapters_en.vtt"></track>
-        <track srclang="de" kind="chapters" type="text/vtt" src="chapters_de.vtt"></track>
-        <!-- Flash fallback for non-HTML5 browsers without JavaScript -->
-        <object width="640" height="360" type="application/x-shockwave-flash" data="flashmediaelement.swf">
-            <param name="movie" value="flashmediaelement.swf" />
-            <param name="flashvars" value="controls=true&file=echo.mp4" />
-            <!-- Image as a last resort -->
-            <img src="echo.jpg" width="640" height="360" title="No video playback capabilities" />
-        </object>
+        <track srclang="en" kind="chapters" type="text/vtt" src="media/chapters_en.vtt"></track>
+        <track srclang="de" kind="chapters" type="text/vtt" src="media/chapters_de.vtt"></track>
       </video>
     </div>
 
@@ -92,6 +82,7 @@
         $('audio, video').mediaelementplayer({
           alwaysShowControls: true,
           plugins: ['flash'],
+          pluginPath: 'media/',
           success: function (mediaElement, domObject) {
             mediaElement.addEventListener('timeupdate', showQuiz, false);
             player = mediaElement;

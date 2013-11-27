@@ -2,9 +2,10 @@
 
 * Subtitles
 * Chapters
+* Flash Fallback
 * Quizzes
 
-The video will be paused in 5 second to show a quiz. Only .m4a format is available currently.
+The video will be paused in 5 second to show a quiz.<br>
 Demo:&nbsp;[djo.github.io/mediaelement-quizzes](http://djo.github.io/mediaelement-quizzes).
 
 Development:
